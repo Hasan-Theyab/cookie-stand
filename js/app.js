@@ -269,10 +269,10 @@ let lima = {
   }
   , render: function () {
     let p_element = document.createElement('p')
-    value3.appendChild(p_element)
+    value4.appendChild(p_element)
     p_element.textContent = "Lima"
     let ulElement = document.createElement('ul')
-    value3.appendChild(ulElement)
+    value4.appendChild(ulElement)
     for (let i = 0; i < this.hours.length; i++) {
       let liElement = document.createElement('li')
       ulElement.appendChild(liElement)
@@ -288,118 +288,3 @@ lima.avgCookies()
 lima.render()
 lima.sumCookies()
 
-//========================================================
-//new code
-
-let cities = [];
-
-function City(name, min, max, avg) {
-  this.name = name;
-  this.min = min;
-  this.max = max;
-  this.avg = avg;
-  this.randomCustomers=[];
-  this.avgCookiesperHour=[];
-  this.sum= 0;
-  console.log(this);
-
-  this.randomCustomers = function random(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-  this.randomCust = function (random) {
-    for (let i = 0; i < this.hours.length; i++) {
-      this.randomCustomersArray.push(this.randomCustomers(this.min, this.max))
-    }
-  }
-  this.avgCookies= function (avg) {
-    for (let i = 0; i < this.randomCustomersArray.length; i++) {
-      this.avgCookiesperHour.push(Math.floor(this.randomCustomersArray[i] * this.avg))
-    }
-  }
-  this.sumCookies= function () {
-    for (let j = 0; j < this.avgCookiesperHour.length; j++) {
-      this.sum = this.sum + this.avgCookiesperHour[j];
-    }
-}
-
-
-
-  cities.push(this);
-
-}
-
-let Seattle = new City('Seattle', 23, 65, 6.3);
-seattle.randomCust();
-seattle.avgCookies();
-seattle.sumCookies();
-
-let Tokyo = new City('Tokyo', 3, 24, 1.2);
-Tokyo.randomCust();
-Tokyo.avgCookies();
-Tokyo.sumCookies();
-
-
-let Dubai = new City('Dubai', 11, 38, 3.7);
-Dubai.randomCust();
-Dubai.avgCookies();
-Dubai.sumCookies();
-
-
-let Paris = new City('Paris', 20, 38, 2.3);
-Paris.randomCust();
-Paris.avgCookies();
-Paris.sumCookies();
-
-
-let Lima = new City('Lima', 2, 16, 4.6);
-Lima.randomCust();
-Lima.avgCookies();
-Lima.sumCookies();
-
-
-
-
-//Table Code
-//====================================================================
-let parent = document.getElementById('parent');
-let table = document.createElement('table');
-parent.appendChild(table);
-let headingRow = document.createElement('tr');
-table.appendChild(headingRow);
-let hours = ['name', 'age'];
-for (let i = 0; i < headings.length; i++) {
-  // make th element
-  let thElement = document.createElement('th');
-
-  // append
-  headingRow.appendChild(thElement);
-
-  // text conent
-  thElement.textContent = headings[i];
-
-}
-
-let students = [ahmad, mohamad, abdulraheem];
-for (let i = 0; i < students.length; i++) {
-  // console.log(students[i].userName);
-  let studentRow = document.createElement('tr');
-
-  // append
-  table.appendChild(studentRow);
-
-
-  // creating the td for name
-  let nameData = document.createElement('td');
-
-  // append name td for tr
-  studentRow.appendChild(nameData);
-  nameData.textContent = students[i].userName;
-
-
-  let ageData = document.createElement('td');
-
-  studentRow.appendChild(ageData);
-
-  ageData.textContent = students[i].age
-
-}
