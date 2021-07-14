@@ -26,6 +26,7 @@ Shop.prototype.calcCustomersEachHour=function(){
   for(let i=0;i<hours.length;i++){
     this.customersEachHour.push(random(this.minCustomers,this.maxCustomers));
   }
+  console.log('customersnumber',this.customersEachHour);
 }
 
 
@@ -118,4 +119,41 @@ for(let i =0;i<shops.length;i++){
 }
 
 makeFooter();
+
+
+//form code
+//--------------------------------------------------------------------
+
+let form=document.getElementById('form');
+form.addEventListener('submit',formSubmitter);
+function formSubmitter(event) {
+  event.preventDefault();
+  let locationName=event.target.locationName.value;
+  let minCustomers=event.target.minCustomersField.value;
+  let maxCustomers=event.target.maxCustomersField.value;
+  let avgCookies=event.target.avgCookies.value;
+  let addedShop=new Shop(locationName,minCustomers,maxCustomers,avgCookies);
+  addedShop.calcCustomersEachHour();
+  addedShop.calcCookiesEachHour();
+  addedShop.render();
+  table.textContent='';
+  makeHeader();
+  this.customersEachHour=[];
+  this.cookiesEachHour=[];
+  this.totalForEachHour=0;
+  this.totalCookiesPerDay=0;
+  this.totalOfTotals=0;
+  for(let i =0;i<shops.length;i++){
+    shops[i].calcCustomersEachHour();
+    shops[i].calcCookiesEachHour();
+    shops[i].render();
+  }
+
+  makeFooter();
+}
+
+
+
+
+
 
