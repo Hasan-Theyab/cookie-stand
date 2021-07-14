@@ -2,34 +2,77 @@
 <html lang="en">
 
 <head>
-
+    
     <title>Sales</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        a:hover {
+          background-color: yellow;
+        }
+        </style>
 </head>
 
 <body>
     
-    
+    <form id="form">
+        <fieldset>
+
+        <label for="locationName">Location Name:</label>
+        <input type="text" name="locationName" id="locationName" required autocomplete="">
+
+        <br>
+        <br>
+
+        <label for="minCustomersField">Min Customers:</label>
+        <input type="number" name="minCustomersField" id="minCustomersField" required>
+
+        <br>
+        <br>
+
+        <label for="maxCustomersField">Max Customers:</label>
+        <input type="number" name="maxCustomersField" id="maxCustomersField" required>
+
+        <br>
+        <br>
+
+        <label for="avgCookies">Average Cookies:</label>
+        <input type="number" step="any" name="avgCookies" id="avgCookies" required>
+
+        <br>
+        <br>
+
+        <input type="submit">
+            
+        <br>
+        <br>
+
+    </fieldset>
+</form>
+
+        <br>
+        <br>
+
         <div id="parent"> </div>
-        
-           
         <div id="seattle"></div>
         <div id="tokyo"></div>
         <div id="dubai"></div>
         <div id="paris"></div>
         <div id="lima"></div>
 
-        <p>   
-            <a href="index.html">index.html
-    
-            </a>
-    
-        </p>
+        <h2 style="background-color: crimson;">Here is the link to the index page:</h2>
+        <a  style="color:blue;" href="index.html">index.html
+        </a>
 
     
     
+    
+    <footer>
+
     <!-- <script src="js/app.js"></script> -->
     <script src="js/app2.js"></script>
+
+    </footer>
+   
 </body>
 
 </html>
