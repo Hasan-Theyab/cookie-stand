@@ -124,26 +124,22 @@ makeFooter();
 //form code
 //--------------------------------------------------------------------
 
+
 let form=document.getElementById('form');
 form.addEventListener('submit',formSubmitter);
 function formSubmitter(event) {
   event.preventDefault();
-  let locationName=event.target.locationName.value;
-  let minCustomers=event.target.minCustomersField.value;
-  let maxCustomers=event.target.maxCustomersField.value;
-  let avgCookies=event.target.avgCookies.value;
-  let addedShop=new Shop(locationName,minCustomers,maxCustomers,avgCookies);
-  addedShop.calcCustomersEachHour();
-  addedShop.calcCookiesEachHour();
-  addedShop.render();
+  let name=event.target.locationName.value;
+  let minCustomers=parseInt(event.target.minCustomersField.value);
+  let maxCustomers=parseInt(event.target.maxCustomersField.value);
+  let avgCookies=parseFloat(event.target.avgCookies.value);
+  let addedShop=new Shop(name,minCustomers,maxCustomers,avgCookies);
   table.textContent='';
   makeHeader();
-  this.customersEachHour=[];
-  this.cookiesEachHour=[];
-  this.totalForEachHour=0;
-  this.totalCookiesPerDay=0;
-  this.totalOfTotals=0;
   for(let i =0;i<shops.length;i++){
+    shops[i].cookiesEachHour=[];
+    shops[i].customersEachHour=[];
+    shops[i].totalCookiesPerDay=0;
     shops[i].calcCustomersEachHour();
     shops[i].calcCookiesEachHour();
     shops[i].render();
